@@ -17,7 +17,7 @@ to define a new object.
 
 - **object** *model_name*
 
-to utilize a previously defined model
+to utilize a previously defined model.
 
 ### Collections:
 - **[]type** for an array or list
@@ -29,16 +29,36 @@ For a field that is optional (i.e. may or may not exist in the model), add the *
 
 
 ## Client Scheme
+First, define models (optional)
 
-**service client** *name*
+**model** *model_name*:  
+&nbsp;&nbsp;&nbsp;&nbsp;...  
 
-&nbsp;&nbsp;&nbsp;&nbsp;**model** *model_name*: \\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**type** **[optional]** *name* \\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... \\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**object** **[optional]** *name*: \\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... \\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**object** **[optional]** *model_name* \\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... \\
+Next, define services
 
+**service** *name*  
+&nbsp;&nbsp;&nbsp;&nbsp;**model** *model_name*  
+&nbsp;&nbsp;&nbsp;&nbsp;**model** *api_model_name*:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**type** **[optional]** *name*  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**object** **[optional]** *name*:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**object** **[optional]** *model_name*  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...  
 
-&nbsp;&nbsp;&nbsp;&nbsp;**method [local|remote]** *name*(*poll_data*) *api_model*
+&nbsp;&nbsp;&nbsp;&nbsp;**method [local|remote]** *name*(*poll_data*) *api_model_name|model_name*
+
+**repository** *name*  
+&nbsp;&nbsp;&nbsp;&nbsp;**model** *model_name*  
+&nbsp;&nbsp;&nbsp;&nbsp;**model** *domain_model_name*:   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...  
+
+&nbsp;&nbsp;&nbsp;&nbsp;**method** *name*(*method_arguments*) *domain_model_name|model_name*  
+
+**view** *name*  
+&nbsp;&nbsp;&nbsp;&nbsp;**model** *model_name*  
+&nbsp;&nbsp;&nbsp;&nbsp;**model** *domain_model_name*:   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...  
+
+&nbsp;&nbsp;&nbsp;&nbsp;**command** *model_name*  
+&nbsp;&nbsp;&nbsp;&nbsp;**method** *name*(*method_arguments*)  
