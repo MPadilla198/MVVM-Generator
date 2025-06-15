@@ -48,17 +48,24 @@ Next, define services
 
 &nbsp;&nbsp;&nbsp;&nbsp;**method [local|remote]** *name*(*poll_data*) *api_model_name|model_name*
 
+Then, define repositories
+
 **repository** *name*  
+&nbsp;&nbsp;&nbsp;&nbsp;**service** *service_name*  
+
 &nbsp;&nbsp;&nbsp;&nbsp;**model** *model_name*  
 &nbsp;&nbsp;&nbsp;&nbsp;**model** *domain_model_name*:   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...  
 
 &nbsp;&nbsp;&nbsp;&nbsp;**method** *name*(*method_arguments*) *domain_model_name|model_name*  
 
+Finally, define views
+
 **view** *name*  
+&nbsp;&nbsp;&nbsp;&nbsp;**repository** *repository_name*  
+
 &nbsp;&nbsp;&nbsp;&nbsp;**model** *model_name*  
-&nbsp;&nbsp;&nbsp;&nbsp;**model** *domain_model_name*:   
+&nbsp;&nbsp;&nbsp;&nbsp;**model** *view_model_name*:   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...  
 
-&nbsp;&nbsp;&nbsp;&nbsp;**command** *model_name*  
-&nbsp;&nbsp;&nbsp;&nbsp;**method** *name*(*method_arguments*)  
+&nbsp;&nbsp;&nbsp;&nbsp;**command** *name*   
